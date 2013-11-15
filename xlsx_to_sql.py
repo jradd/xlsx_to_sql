@@ -3,6 +3,7 @@ import xlrd
 #import csv
 from os import sys
 
+#example of sql query template:
 TEMPLATE_TABLE_1 = 'insert into TABLE_NAME(col1, col2, col3)values("{0}", "{1}", "{2}");';
 
 def convert(excel_file):
@@ -25,7 +26,7 @@ def convert(excel_file):
 			items = []
 			for a in sheet.row_values(row):
 				items.append(unicode(a).encode('utf-8'))
-			print TEMPLATE_TABLE_1.format(items[0], items[1], items[2])
+			#print TEMPLATE_TABLE_1.format(items[0], items[1], items[2])
 			my_sql.write(TEMPLATE_TABLE_1.format(items[0], items[1], items[2]))
 			#writer.writerow([unicode(entry).encode("utf-8") for entry in sheet.row_values(row)])
 		#my_csv.close()
